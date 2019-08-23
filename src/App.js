@@ -19,7 +19,6 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    //fetch request
     fetch('http://localhost:9090/folders')
       .then(res => {
         if (res.ok) {
