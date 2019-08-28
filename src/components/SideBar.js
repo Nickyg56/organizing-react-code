@@ -17,7 +17,7 @@ class SideBar extends React.Component {
       <Route path="/add-folder" component={MainSideBar} />
 
       <Route path="/add-note" component={MainSideBar} />
-    </>)
+    </>) 
   }
 }
 

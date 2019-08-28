@@ -13,7 +13,7 @@ class Note extends React.Component {
 
     if (!note) {
       return 'page not found';
-    }
+    } 
 
     const date = new Date(note.modified);
     const convertedDate = date.toDateString();

@@ -17,7 +17,7 @@ class NoteSideBar extends React.Component {
   const currentFolder = this.context.folders.find(
     folder => folder.id === currentFolderId
   )
-  return (
+  return ( 
     <div className='button-folder-container'>
     <button
       className='go-back'

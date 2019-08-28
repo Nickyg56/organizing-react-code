@@ -11,7 +11,7 @@ class Main extends React.Component {
   static contextType = StoreContext;
 
   render() {
-    return (
+    return ( 
       <>
         <Route exact path='/' component={NoteList} />
 

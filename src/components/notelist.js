@@ -16,7 +16,7 @@ class NoteList extends React.Component {
         return (
           <li key={note.id}>
             <Link to={`/note/${note.id}`}>
-              <h2>{note.name}</h2>
+              <h2>{note.name}</h2> 
             </Link>
             <p>Date Modified On: {convertedDate}</p>
             <button

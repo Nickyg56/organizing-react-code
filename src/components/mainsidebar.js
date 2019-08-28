@@ -16,7 +16,7 @@ class MainSideBar extends React.Component {
             {folder.name}
           </NavLink>
         </li>
-      )
+      ) 
     })
     return (
       <div className='nav-container'>
