@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/note.css';
+import './styles/Note.css';
 import StoreContext from '../context/StoreContext';
 import PropTypes from 'prop-types';
 

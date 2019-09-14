@@ -2,7 +2,6 @@ import React from 'react';
 import MainSideBar from './Mainsidebar';
 import NoteSideBar from './NoteSideBar';
 import { Route } from 'react-router-dom';
-import './styles/sidebar.css';
 
 class SideBar extends React.Component {
 

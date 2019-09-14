@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './styles/mainsidebar.css'
+import './styles/Mainsidebar.css'
 import StoreContext from '../context/StoreContext'
 
 class MainSideBar extends React.Component {

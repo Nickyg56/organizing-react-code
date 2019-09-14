@@ -1,31 +1,31 @@
 .nav-container {
-    display: flex;
-    position: fixed;
-    justify-content: flex-start;
-    flex-direction: column;
-    border: 1px solid black;
-    width: 20%;
-    margin: 10px;
-    color: black;
+  display: flex;
+  position: fixed;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 20%;
+  margin: 10px;
+  color: black;
 }
 
 .add-button {
-  margin-left: 5px;
-  width: 95%;
-  height: 30px;
+margin-left: 5px;
+width: 95%;
+height: 30px;
 }
 
 .nav-list {
-    text-align: center;
-    border: 1px solid black;
-    padding: 4%;
+  text-align: center;
+  border: 1px solid black;
+  padding: 4%;
 }
 
 .nav-list-container {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 a:visited{
-    color: black;
+  color: black;
 }
 

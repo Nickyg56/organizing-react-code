@@ -9,7 +9,7 @@
 
 import React from "react";
 import StoreContext from "../context/StoreContext";
-import "./styles/addFolder.css";
+import "./styles/AddFolder.css";
 
 class AddFolder extends React.Component {
   static contextType = StoreContext;

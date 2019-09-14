@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles/notelist.css";
+import "./styles/Notelist.css";
 import StoreContext from "../context/StoreContext";
 import PropTypes from "prop-types";
 

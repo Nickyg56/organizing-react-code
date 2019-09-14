@@ -2,6 +2,7 @@
 
 import React from "react";
 import StoreContext from "../context/StoreContext";
+import './styles/AddNote.css';
 
 class AddNote extends React.Component {
   static contextType = StoreContext;

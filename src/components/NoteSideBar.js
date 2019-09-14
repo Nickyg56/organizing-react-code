@@ -1,7 +1,6 @@
 import React from 'react';
 import StoreContext from '../context/StoreContext';
 import PropTypes from 'prop-types';
-import './styles/notesidebar.css';
 
 class NoteSideBar extends React.Component {
   static contextType = StoreContext;

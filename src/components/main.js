@@ -4,7 +4,7 @@ import Note from './Note';
 import AddFolder from './AddFolder';
 import AddNote from './AddNote';
 import { Route } from 'react-router-dom';
-import './styles/main.css';
+import './styles/Main.css';
 import StoreContext from '../context/StoreContext';
 
 class Main extends React.Component {
