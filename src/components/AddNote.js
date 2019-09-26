@@ -2,12 +2,16 @@
 
 import React from "react";
 import StoreContext from "../context/StoreContext";
-import './styles/AddNote.css';
+import './styles/Addnote.css';
 
 class AddNote extends React.Component {
   static contextType = StoreContext;
 
   render() {
+    let {error} = this.context
+    if(error){
+      return <div style={{color: 'red'}}>{error}</div>
+    }
     return (
       <form
         className="add-note"
@@ -48,11 +52,12 @@ class AddNote extends React.Component {
           Folder:
           <select
             id="folder-list"
+            required
             onChange={e => this.context.updateFolderChoice(e.target.value)}
           >
             <option value="select a folder" aria-label="Choose a folder">Select a Folder</option>
-            {this.context.folders.map(folder => (
-              <option key={folder.id} value={folder.id}>
+            {this.context.folders.map((folder, index) => (
+              <option key={index} value={folder.id}>
                 {folder.name}
               </option>
             ))}

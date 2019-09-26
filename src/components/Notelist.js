@@ -30,11 +30,11 @@ class NoteList extends React.Component {
         );
       });
 
-    const noteList = this.context.notes.map(note => {
+    const noteList = this.context.notes.map((note, i) => {
       const date = new Date(note.modified);
       const convertedDate = date.toDateString();
       return (
-        <li key={note.id}>
+        <li key={i}>
           <Link to={`/note/${note.id}`}>
             <h2>{note.name}</h2>
           </Link>

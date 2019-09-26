@@ -16,6 +16,7 @@ class App extends React.Component {
     userNoteName: '',
     userNoteContent: '',
     userFolderChoice: '',
+    error: null,
   };
 
   componentDidMount() {
@@ -122,33 +123,39 @@ class App extends React.Component {
     //console.log('Save is being clicked');
     event.preventDefault();
 
-    const newNote = {
-      name: this.state.userNoteName,
-      content: this.state.userNoteContent,
-      folderId: this.state.userFolderChoice,
-      modified: new Date()
-    };
-    console.log(this.state.userInput);
-    // Send to API (POST)
-    return fetch('http://localhost:9090/notes', {
-      method: 'POST', 
-      headers: new Headers({'Content-Type': 'application/json'}),
-      body: JSON.stringify(newNote)
-    })
-      .then(res => {
-        if(res.ok) {
-          return res.json();
-        }
-        throw new Error(res.statusText);
+    if (this.state.userFolderChoice === ''){
+      this.setState({error: 'Must choose valid folder'})
+    } else {
+      const newNote = {
+        name: this.state.userNoteName,
+        content: this.state.userNoteContent,
+        folderId: this.state.userFolderChoice,
+        modified: new Date()
+      };
+      console.log(this.state.userInput);
+      // Send to API (POST)
+      return fetch('http://localhost:9090/notes', {
+        method: 'POST', 
+        headers: new Headers({'Content-Type': 'application/json'}),
+        body: JSON.stringify(newNote)
       })
-      .then(resJson => {
-        console.log(resJson);
-        this.setState({
-          notes: [...this.state.notes, newNote]
+        .then(res => {
+          if(res.ok) {
+            return res.json();
+          }
+          throw new Error(res.statusText);
         })
-        this.props.history.push('/');
-      })
-      .catch(error => console.log(error));
+        .then(resJson => {
+          console.log(resJson);
+          this.setState({
+            notes: [...this.state.notes, newNote]
+          })
+          this.props.history.push('/');
+        })
+        .catch(error => console.log(error));
+    }
+
+    
   }
 
   render() {
@@ -164,6 +171,7 @@ class App extends React.Component {
           updateNoteName: this.updateNoteName,
           updateNoteContent: this.updateNoteContent,
           updateFolderChoice: this.updateFolderChoice,
+          error: this.state.error,
         }}
       >
         <div className='App'>

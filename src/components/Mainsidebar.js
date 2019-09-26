@@ -9,9 +9,9 @@ class MainSideBar extends React.Component {
   static contextType = StoreContext;
 
   render() {
-    const folderList = this.context.folders.map(folder => {
+    const folderList = this.context.folders.map((folder, index) => {
       return (
-        <li key={folder.id} className='nav-list'>
+        <li key={index} className='nav-list'>
           <NavLink to={`/folder/${folder.id}`} style={{ textDecoration: 'none' }}>
             {folder.name}
           </NavLink>
