@@ -7,6 +7,7 @@ class NoteSideBar extends React.Component {
   render() {
 
     console.log('match', this.props.match.params.noteId)
+    console.log(this.context)
 
   const currentNote = this.context.notes.find(
     note => note.id === this.props.match.params.noteId

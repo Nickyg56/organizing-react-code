@@ -2,15 +2,16 @@
 
 import React from "react";
 import StoreContext from "../context/StoreContext";
-import './styles/Addnote.css';
+import './styles/AddNote.css';
 
 class AddNote extends React.Component {
   static contextType = StoreContext;
 
   render() {
     let {error} = this.context
+    let errorMessage = '';
     if(error){
-      return <div style={{color: 'red'}}>{error}</div>
+      errorMessage = <div style={{color: 'red'}}>{error}</div>
     }
     return (
       <form
@@ -18,6 +19,7 @@ class AddNote extends React.Component {
         id="add-note"
         onSubmit={e => this.context.handleNoteSave(e)}
       >
+        {error && errorMessage}
         <label htmlFor="note-name">
           {" "}
           Note Name:

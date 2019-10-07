@@ -89,10 +89,10 @@ class App extends React.Component {
     this.setState({
       notes: filterDeleted
     })
+    this.props.history.push('/');
   }
   
   handleSave = (event) => {
-    console.log('Save is being clicked');
     event.preventDefault();
 
     const newFolder = {name: this.state.userInput};
@@ -120,7 +120,6 @@ class App extends React.Component {
   }
 
   handleNoteSave = (event) => {
-    //console.log('Save is being clicked');
     event.preventDefault();
 
     if (this.state.userFolderChoice === ''){
@@ -148,8 +147,8 @@ class App extends React.Component {
         .then(resJson => {
           console.log(resJson);
           this.setState({
-            notes: [...this.state.notes, newNote]
-          })
+            notes: [...this.state.notes, resJson]
+          }, () => console.log(this.state.notes))
           this.props.history.push('/');
         })
         .catch(error => console.log(error));
