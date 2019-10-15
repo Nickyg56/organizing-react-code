@@ -15,13 +15,13 @@ class Note extends React.Component {
       return 'page not found';
     } 
 
-    const date = new Date(note.modified);
+    const date = new Date(note.date_modified);
     const convertedDate = date.toDateString();
 
     return (
       <div key={note.id}>
         <div className='expanded-note'>
-          <h2 className='note-name'>{note.name}</h2>
+          <h2 className='note-name'>{note.note_name}</h2>
           <p>Date Modified On: {convertedDate}</p>
           <button type='button' onClick={() => this.context.handleDelete(note.id)}>
             Delete Note

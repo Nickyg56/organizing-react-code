@@ -20,7 +20,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:9090/folders')
+    fetch('http://localhost:8000/api/folders')
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -36,7 +36,7 @@ class App extends React.Component {
         console.log(error);
       });
 
-    fetch('http://localhost:9090/notes')
+    fetch('http://localhost:8000/api/notes')
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -79,7 +79,7 @@ class App extends React.Component {
   }
 
   handleDelete = (noteId) => {
-    fetch(`http://localhost:9090/notes/${noteId}`, {
+    fetch(`http://localhost:8000/api/notes/${noteId}`, {
       method: 'DELETE',
       headers: new Headers({'Content-Type': 'application/json'})
     })
@@ -95,10 +95,10 @@ class App extends React.Component {
   handleSave = (event) => {
     event.preventDefault();
 
-    const newFolder = {name: this.state.userInput};
+    const newFolder = {folder_name: this.state.userInput};
     console.log(this.state.userInput);
     // Send to API (POST)
-    return fetch('http://localhost:9090/folders', {
+    return fetch('http://localhost:8000/api/folders', {
       method: 'POST', 
       headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify(newFolder)
@@ -126,14 +126,14 @@ class App extends React.Component {
       this.setState({error: 'Must choose valid folder'})
     } else {
       const newNote = {
-        name: this.state.userNoteName,
+        note_name: this.state.userNoteName,
         content: this.state.userNoteContent,
-        folderId: this.state.userFolderChoice,
-        modified: new Date()
+        folder_id: this.state.userFolderChoice,
+        date_modified: new Date()
       };
       console.log(this.state.userInput);
       // Send to API (POST)
-      return fetch('http://localhost:9090/notes', {
+      return fetch('http://localhost:8000/api/notes', {
         method: 'POST', 
         headers: new Headers({'Content-Type': 'application/json'}),
         body: JSON.stringify(newNote)
@@ -158,6 +158,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.folders, this.state.notes)
     return (
       <StoreContext.Provider
         value={{

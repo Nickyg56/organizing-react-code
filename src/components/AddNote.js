@@ -60,7 +60,7 @@ class AddNote extends React.Component {
             <option value="select a folder" aria-label="Choose a folder">Select a Folder</option>
             {this.context.folders.map((folder, index) => (
               <option key={index} value={folder.id}>
-                {folder.name}
+                {folder.folder_name}
               </option>
             ))}
           </select>
