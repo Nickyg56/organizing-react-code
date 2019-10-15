@@ -7,6 +7,7 @@ import StoreContext from './context/StoreContext';
 import NoteErrorBoundary from './NoteErrorBoundary';
 import FolderErrorBoundary from './FolderErrorBoundary';
 import {withRouter} from 'react-router-dom';
+import config from './config';
 
 class App extends React.Component {
   state = {
@@ -20,7 +21,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:8000/api/folders')
+    fetch(`${config.API_ENDPOINT}/folders`)
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -36,7 +37,7 @@ class App extends React.Component {
         console.log(error);
       });
 
-    fetch('http://localhost:8000/api/notes')
+    fetch(`${config.API_ENDPOINT}/notes`)
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -79,7 +80,7 @@ class App extends React.Component {
   }
 
   handleDelete = (noteId) => {
-    fetch(`http://localhost:8000/api/notes/${noteId}`, {
+    fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
       method: 'DELETE',
       headers: new Headers({'Content-Type': 'application/json'})
     })
@@ -98,7 +99,7 @@ class App extends React.Component {
     const newFolder = {folder_name: this.state.userInput};
     console.log(this.state.userInput);
     // Send to API (POST)
-    return fetch('http://localhost:8000/api/folders', {
+    return fetch(`${config.API_ENDPOINT}/folders`, {
       method: 'POST', 
       headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify(newFolder)
@@ -133,7 +134,7 @@ class App extends React.Component {
       };
       console.log(this.state.userInput);
       // Send to API (POST)
-      return fetch('http://localhost:8000/api/notes', {
+      return fetch(`${config.API_ENDPOINT}/notes`, {
         method: 'POST', 
         headers: new Headers({'Content-Type': 'application/json'}),
         body: JSON.stringify(newNote)
