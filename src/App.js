@@ -113,7 +113,7 @@ class App extends React.Component {
       .then(resJson => {
         console.log(resJson);
         this.setState({
-          folders: [...this.state.folders, newFolder]
+          folders: [...this.state.folders, resJson]
         })
         this.props.history.push('/');
       })
